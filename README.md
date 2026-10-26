@@ -1,4 +1,4 @@
-\# Personal RAG Assistant
+PERSONAL RAG ASSISTANT
 
 
 
