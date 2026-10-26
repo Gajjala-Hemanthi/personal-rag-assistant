@@ -1,0 +1,22 @@
+Baseline v1: chunk 200, MiniLM, per-chunk threshold 0.15
+  hit@1 88%, hit@3 100%, refusals 25%
+v2: per-chunk threshold 0.22
+  hit@1 88%, hit@3 88%, refusals 75%
+  Regression: "what projects have I built?" lost a useful low-scoring chunk.
+v3: threshold on top chunk only (0.22), keep all top-3
+  hit@1 88%, hit@3 100%, refusals 75%
+Open problem: "what is my salary?" (0.27) outscores "what is my goal?" (0.26),
+so a score threshold alone can't separate them.
+Caveat: only 3 chunks in the index, so top-3 retrieves everything.
+v4: fetch 5, rerank with cross-encoder (ms-marco-MiniLM-L-6-v2), keep 3
+  hit@1 88%, hit@3 100%, refusals 75%
+  Reranking recovered the missed chunk without sending more context.
+  Caveat: index has only 7 chunks, so fetch 5 covers most of it.
+Open problem: salary question still passes the gate (gate uses embedding score).
+Next: use the reranker score for the refusal decision.
+v5: reranker gate (threshold -4, picked from the score gap -9.4 vs +0.26)
+  tuning set (12):   hit@1 88%, hit@3 100%, refusals 100%
+  held-out set (6):  hit@1 67%, hit@3 100%, refusals 100%
+Finding: cross-encoder scores separated answerable from unanswerable
+(~10 point gap), where embedding similarity overlapped (0.26 vs 0.27).
+Limitation: small test sets, 7 chunks. Weak spot: hit@1 on broad questions.

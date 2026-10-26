@@ -1,0 +1,8 @@
+My Android app MyAIAssistant is written in Kotlin with Jetpack Compose.
+The app calls the Gemini API over HTTP and reads replies aloud using Android text to speech.
+I added voice input using Android speech recognition.
+The app can open WhatsApp, YouTube and the camera from a voice command.
+I fixed Gradle sync failures caused by DNS and network timeouts.
+I fixed Gemini errors 404, 429 and 504 by changing the model and adding retries.
+My Python assistant has a Tkinter window and saves chat memory in a JSON file.
+My RAG project uses ChromaDB and sentence-transformers with an evaluation script.

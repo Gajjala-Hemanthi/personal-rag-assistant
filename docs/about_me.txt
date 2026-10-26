@@ -1,0 +1,8 @@
+My name is Gajja. I am learning to become an AI engineer.
+I built a personal AI assistant in Python using the Gemini API.
+I built an Android app in Kotlin that chats, listens to my voice and speaks replies.
+My skills are Python, Kotlin basics, LLM APIs and RAG.
+I tested my app on an iQOO Z6 Lite phone.
+My goal is to get a job as an AI engineer.
+I want to build projects that real users can use.
+I am building a RAG project that answers questions from my own notes.

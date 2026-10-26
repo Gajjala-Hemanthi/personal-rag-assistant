@@ -1,0 +1,5 @@
+chromadb
+sentence-transformers
+google-genai
+fastapi
+uvicorn
